@@ -25,16 +25,14 @@ public class Operation {
         }
 
         // --- PARTIE 2 : Somme des deux plus grands nombres ---
-        int[] tableau = {78, 6, -250, 2, 12, 9};
+        int[] tab = {78, 6, -250, 2, 12, 9};
 
-        // On suppose que le tableau a au moins 2 éléments
         int max1 = 0;
         int max2 = 0;
 
-
         // Boucle pour parcourir le reste du tableau
-        for (int i = 0; i < tableau.length; i++) {
-            int n = tableau[i];
+        for (int i = 0; i < tab.length; i++) {
+            int n = tab[i];
 
             if (n > max1) {
                 max2 = max1;
