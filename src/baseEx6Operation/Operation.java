@@ -16,5 +16,11 @@ public class Operation {
 		
 		return operand_1 * operand_2;
 	}
+	
+	public static int div(int operand_1, int operand_2) {
+		
+		if(operand_2 == 0)
+		return operand_1 * operand_2;
+	}
 
 }
