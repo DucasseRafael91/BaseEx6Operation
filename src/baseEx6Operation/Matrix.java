@@ -20,6 +20,16 @@ public class Matrix {
 
         System.out.println("\nMatrice 2 :");
         displayMatrix(matrix2);
+
+        // Addition des deux matrices
+        System.out.println("Addition des matrices :");
+        int[][] add_matrix_result = addMatrix(matrix1, matrix2);
+        displayMatrix(add_matrix_result);
+        
+        // Soustraction des deux matrices
+        System.out.println("Soustraction des matrices :");
+        int[][] sub_matrix_result = subMatrix(matrix1, matrix2);
+        displayMatrix(sub_matrix_result);
     }
 
     // Méthode pour afficher une matrice
@@ -32,4 +42,41 @@ public class Matrix {
         }
     }
 
+    // Méthode pour additionner deux matrices
+    public static int[][] addMatrix(int[][] matrix1, int[][] matrix2) {
+
+        if (matrix1.length != matrix2.length || matrix1[0].length != matrix2[0].length) {
+            System.out.println("Erreur : les matrices doivent avoir les mêmes dimensions !");
+            return null;
+        }
+
+        int[][] result = new int[matrix1.length][matrix1[0].length];
+
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[i].length; j++) {
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+
+        return result;
+    }
+    
+    // Méthode pour soustraire deux matrices
+    public static int[][] subMatrix(int[][] matrix1, int[][] matrix2) {
+
+        if (matrix1.length != matrix2.length || matrix1[0].length != matrix2[0].length) {
+            System.out.println("Erreur : les matrices doivent avoir les mêmes dimensions !");
+            return null;
+        }
+
+        int[][] result = new int[matrix1.length][matrix1[0].length];
+
+        for (int i = 0; i < matrix1.length; i++) {
+            for (int j = 0; j < matrix1[i].length; j++) {
+                result[i][j] = matrix1[i][j] - matrix2[i][j];
+            }
+        }
+
+        return result;
+    }
 }
