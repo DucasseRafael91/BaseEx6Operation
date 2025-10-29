@@ -3,37 +3,54 @@ package baseEx6Operation;
 public class Operation {
 
     public static void main(String[] args) {
-        // Définition de la base du triangle (nombre d'étoiles sur la dernière ligne)
+        // --- PARTIE 1 : Affichage du triangle ---
         int base = 13;
-
-        // Calcul de la hauteur du triangle
-        // Formule : hauteur = (base + 1) / 2
         int hauteur = div(add(base, 1), 2);
 
-        // Boucle pour chaque ligne du triangle
         for (int i = 1; i <= hauteur; i++) {
 
-            // Calcul du nombre d'espaces avant les étoiles
             int espaces = sub(hauteur, i);
 
-            // Affichage des espaces
             for (int j = 0; j < espaces; j++) {
                 System.out.print(" ");
             }
 
-            // Calcul du nombre d'étoiles à afficher sur cette ligne
             int etoiles = sub(mul(2, i), 1);
 
-            // Affichage des étoiles
             for (int k = 0; k < etoiles; k++) {
                 System.out.print("*");
             }
 
-            // Passage à la ligne suivante
             System.out.println();
         }
+
+        // --- PARTIE 2 : Somme des deux plus grands nombres ---
+        int[] tableau = {78, 6, -250, 2, 12, 9};
+
+        // On suppose que le tableau a au moins 2 éléments
+        int max1 = 0;
+        int max2 = 0;
+
+
+        // Boucle pour parcourir le reste du tableau
+        for (int i = 0; i < tableau.length; i++) {
+            int n = tableau[i];
+
+            if (n > max1) {
+                max2 = max1;
+                max1 = n;
+            } else if (n > max2) {
+                max2 = n;
+            }
+        }
+
+        int somme = add(max1, max2);
+
+        System.out.println("\nLes deux plus grands nombres sont : " + max1 + " et " + max2);
+        System.out.println("La somme des deux plus grands nombres est : " + somme);
     }
 
+    // --- Méthodes d’opérations de base ---
     public static int add(int operand_1, int operand_2) {
         return operand_1 + operand_2;
     }
@@ -48,7 +65,7 @@ public class Operation {
 
     public static int div(int operand_1, int operand_2) {
         if (operand_2 == 0) {
-            return 0; 
+            return 0;
         } else {
             return operand_1 / operand_2;
         }
