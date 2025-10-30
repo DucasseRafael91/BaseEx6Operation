@@ -22,14 +22,19 @@ public class Matrix {
         displayMatrix(matrix2);
 
         // Addition des deux matrices
-        System.out.println("Addition des matrices :");
+        System.out.println("\nAddition des matrices :");
         int[][] add_matrix_result = addMatrix(matrix1, matrix2);
         displayMatrix(add_matrix_result);
         
         // Soustraction des deux matrices
-        System.out.println("Soustraction des matrices :");
+        System.out.println("\nSoustraction des matrices :");
         int[][] sub_matrix_result = subMatrix(matrix1, matrix2);
         displayMatrix(sub_matrix_result);
+        
+        // Multiplication scalaire
+        System.out.println("\nMultiplication de la Matrice par un scalaire (2) :");
+        int[][] scalar_result = scalarMatrix(matrix1, 2);
+        displayMatrix(scalar_result);
     }
 
     // Méthode pour afficher une matrice
@@ -77,6 +82,18 @@ public class Matrix {
             }
         }
 
+        return result;
+    }
+    
+    public static int[][] scalarMatrix(int[][] matrix, int scalar) {
+        int[][] result = new int[matrix.length][matrix[0].length];
+        
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                result[i][j] = matrix[i][j] * scalar;
+            }
+        }
+        
         return result;
     }
 }
